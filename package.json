@@ -2,7 +2,7 @@
   "name": "bitcore-wallet",
   "description": "A CLI Mutisig HD Bitcoin Wallet, demo for Bitcore Wallet Service",
   "author": "BitPay Inc",
-  "version": "0.6.1",
+  "version": "0.6.1D",
   "keywords": [
     "bitcoin",
     "copay",
@@ -10,14 +10,19 @@
     "wallet"
   ],
   "repository": {
-    "url": "git@github.com:bitpay/bitcore-wallet.git",
+    "url": "git@github.com:decred/bitcore-wallet.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/bitcore-wallet/issues"
+    "url": "https://github.com/decred/bitcore-wallet/issues"
+  },
+  "engines": {
+    "node": "4.2.1",
+    "npm": ">=2.0.0"
   },
   "dependencies": {
-    "bitcore-wallet-client": "0.6.4",
+    "bitcore-wallet-client": "git://github.com/decred/bitcore-wallet-client.git#master",
+    "crypto-browserify": "git://github.com/decred/crypto-browserify.git#master-legacy",
     "commander": "^2.6.0",
     "lodash": "^3.3.1",
     "moment": "^2.9.0",

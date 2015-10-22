@@ -17,7 +17,7 @@ if (!args[0])
 
 var walletName = args[0];
 var copayerName = args[2] || process.env.USER;
-var network = program.testnet ? 'testnet' : 'livenet';
+var network = program.testnet ? 'dcrdtestnet' : 'dcrdlivenet';
 
 var mn;
 try {

@@ -6,13 +6,13 @@ program = utils.configureCommander(program);
 
 program
   .usage('[options] <address> <amount> [note]')
-  .description('Create a proposal for sending bitcoins to a destination address.\n  The amount can be specified in bit, btc or sat (the default).');
+  .description('Create a proposal for sending bitcoins to a destination address.\n  The amount can be specified in dbt, dcr, or atm (the default).');
 
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
-  console.log('    $ bit-send n2HRFgtoihgAhx1qAEXcdBMjoMvAx7AcDc 500bit');
-  console.log('    $ bit-send mgWeRvUC6d1LRPKtdDbvYEpaUEmApS4XrY 0.2btc "dinner with friends"');
+  console.log('    $ bit-send n2HRFgtoihgAhx1qAEXcdBMjoMvAx7AcDc 500dbt');
+  console.log('    $ bit-send mgWeRvUC6d1LRPKtdDbvYEpaUEmApS4XrY 0.2dcr "dinner with friends"');
   console.log('');
 });
 program.parse(process.argv);

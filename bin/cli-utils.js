@@ -93,7 +93,7 @@ Utils.getClient = function(args, opts, cb) {
   opts = opts || {};
 
   var filename = args.file || process.env['WALLET_FILE'] || process.env['HOME'] + '/.wallet.dat';
-  var host = args.host || process.env['BWS_HOST'] || 'https://bws.bitpay.com/';
+  var host = args.host || process.env['BWS_HOST'];
 
   var storage = new FileStorage({
     filename: filename,
@@ -205,6 +205,9 @@ Utils.UNITS = {
   'btc': 100000000,
   'bit': 100,
   'sat': 1,
+  'dcr': 100000000,
+  'dbit': 100,
+  'atm': 1
 };
 
 Utils.parseAmount = function(text) {
@@ -219,7 +222,7 @@ Utils.parseAmount = function(text) {
   var amount = parseFloat(match[1]);
   if (!_.isNumber(amount) || _.isNaN(amount)) throw new Error('Invalid amount');
 
-  var unit = (match[3] || 'sat').toLowerCase();
+  var unit = (match[3] || 'atm').toLowerCase();
   var rate = Utils.UNITS[unit];
   if (!rate) throw new Error('Invalid unit')
 
@@ -240,10 +243,10 @@ Utils.configureCommander = function(program) {
 };
 
 Utils.renderAmount = function(amount) {
-  var unit = process.env.BIT_UNIT || 'bit';
-  if (unit === 'SAT') {
+  var unit = process.env.BIT_UNIT || 'dbit';
+  if (unit === 'ATM') {
     // Do nothing
-  } else if (process.env.BIT_UNIT === 'btc') {
+  } else if (process.env.BIT_UNIT === 'dcr') {
     amount = amount / 1e8;
   } else {
     amount = amount / 100;

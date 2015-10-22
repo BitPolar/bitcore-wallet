@@ -12,7 +12,7 @@ program
   .parse(process.argv);
 
 var args = program.args;
-var network = program.testnet ? 'testnet' : 'livenet';
+var network = program.testnet ? 'dcrdtestnet' : 'dcrdlivenet';
 utils.getClient(program, { doNotComplete: true, mustBeNew: true },  function (client) {
   client.seedFromRandom(network);
   utils.saveClient(program, client, function () {
